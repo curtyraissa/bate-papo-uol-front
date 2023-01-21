@@ -1,59 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    width: 375px;
+  font-family: 'Roboto', sans-serif;
+  width: 375px;
 }
 
 header {
-    height: 80px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 22px;
+  width: 375px;
+  height: 80px;
+  background: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
 }
 
-img{
-    width: 75px;
-    height: 53px;
+img {
+  width: 75px;
+  height: 53px;
 }
 
-.people-icon{
-    Width: 42px;
-    Height: 30px;
+.people-icon {
+  width: 42px;
+  height: 30px;
 }
 
-main{
-    height: 507px;
-    background: #E5E5E5;
+main {
+  height: 507px;
+  margin-top: 80px;
+  background-color: #e5e5e5;
+  overflow-y: scroll;
+  word-break: break-word;
 }
 
-footer{
-    height: 80px;
-    background: #FFFFFF;
-    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 17px;
+footer {
+  width: 375px;
+  height: 80px;
+  background: #ffffff;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+  padding: 0 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
 }
 
-.text{
-    Font-style: Italic;
-    Font-size: 18px;
+.plane-icon {
+  width: 26px;
+  height: 26px;
 }
 
-.paper-plane{
-    width: 26px;
-    height: 26px;
+.text {
+  font-size: 18px;
+  font-style: italic;
+  border: none;
 }
 
-
-
+.entrarNaSala {
+  background-color: #DCDCDC;
+  width: 375px;
+  height: 40px;
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
 
