@@ -2,10 +2,10 @@ let nome = prompt('Qual é o seu nome?')
 
 const nomeUsuario = { name: nome }
 let batePapo = document.querySelector('.chat')
-const mensagemDigitada = document.querySelector('.text')
-verificarUsuario()
+const msgDigitada = document.querySelector('.text')
+verificandoUsuario()
 
-function verificarUsuario() {
+function verificandoUsuario() {
   const resposta = axios.post(
     'https://mock-api.driven.com.br/api/v6/uol/participants',
     nomeUsuario
@@ -19,15 +19,15 @@ function mantendoConexao(){
   manterConexao.catch()
 }
 
-
 function respostaChegou(resposta) {
   let batePapo = document.querySelector('.chat')
   batePapo.innerHTML = ''
+
   for (let i = 0; i < 100; i++) {
     let hora = resposta.data[i].time
-    let nome1 = resposta.data[i].from
-    let nome2 = resposta.data[i].to
-    let texto = resposta.data[i].texto
+    let nomeA = resposta.data[i].from
+    let nomeB = resposta.data[i].to
+    let texto = resposta.data[i].text
     let tipo = resposta.data[i].type
 
     if (tipo === 'status' || tipo === 'message' ){
@@ -36,20 +36,20 @@ function respostaChegou(resposta) {
       batePapo.innerHTML += `
       
       <div data-test="message" class="${tipo}">
-          (${hora}) ${nome1} para ${nome2}: ${texto}
-      </div> <!-- fechamento entra na sala -->
+          (${hora}) ${nomeA} para ${nomeB}: ${texto}
+      </div> 
   
       `;
   }
 
-      if (tipo === 'private_message' && (nome1 === nome || nome2 === nome)){
+      if (tipo === 'private_message' && (nomeA === nome || nomeB === nome)){
 
 
       batePapo.innerHTML += `
       
       <div data-test="message" class="${tipo}">
-          (${hora}) ${nome1} para ${nome2}: ${texto}
-      </div> <!-- fechamento entra na sala -->
+          (${hora}) ${nomeA} para ${nomeB}: ${texto}
+      </div> 
   
       `;
   }
@@ -57,13 +57,17 @@ function respostaChegou(resposta) {
   batePapo.querySelector('div:last-child').scrollIntoView()
 }
 
-function pegarConversaNoServidor() {
+function Errado(erro){
+  window.location.reload()
+}
+
+function pegarConversa() {
   const promessa = axios.get(
     'https://mock-api.driven.com.br/api/v6/uol/messages'
   )
 
   promessa.then(respostaChegou)
-  promessa.catch(erro)
+  promessa.catch(Errado)
 }
 
 function enviarMensagem(){
@@ -71,16 +75,16 @@ function enviarMensagem(){
   const msg = {
       from: nome,
       to: "Todos",
-      text: mensagemDigitada.value,
+      text: msgDigitada.value,
       type: "message" 
   }
 
   const enviar = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', msg);
 
-  mensagemDigitada.value=""
+  msgDigitada.value=""
 
   enviar.then(pegarConversaNoServidor);
-  enviar.catch(erro);
+  enviar.catch(Errado);
 }
 
 function usuarioVerificado (){
@@ -92,35 +96,12 @@ function usuarioVerificado (){
   setInterval(mantendoConexao, 5000);
 }
 
-  function pegarConversaNoServidor(){
-
-    const promessa = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
-
-    promessa.then(respostaChegou);
-    promessa.catch(erro);
-}
-
-function enviarMensagem(){
+document.addEventListener("keypress", function (e){
 
 
-    const msg = {
-        from: nome,
-        to: "Todos",
-        text: mensagemDigitada.value,
-        type: "message" 
-    }
+  if (e.key === "Enter") {
 
-    const enviar = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', msg);
-
-    mensagemDigitada.value = "";
-
-    enviar.then(pegarConversaNoServidor);
-    enviar.catch(erro);
-}
-
-function erro (erro){
-  window.location.reload();
-}
-
-
-
+      const btn = document.querySelector('.plane-icon')
+      btn.click();
+  }
+})
