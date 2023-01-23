@@ -61,7 +61,7 @@ function Errado(erro){
   window.location.reload()
 }
 
-function pegarConversa() {
+function pegarConversaNoServidor() {
   const promessa = axios.get(
     'https://mock-api.driven.com.br/api/v6/uol/messages'
   )
