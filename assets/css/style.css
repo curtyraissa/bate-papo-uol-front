@@ -66,14 +66,15 @@ footer {
   border: none;
 }
 
-.entrarNaSala {
+.status {
   background-color: #DCDCDC;
-  width: 375px;
-  height: 40px;
-  margin-top: 26px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif;
+}
+
+.message{
+  background-color: white;
+}
+
+.private_message {
+  background-color: #FFDEDE;
 }
 
