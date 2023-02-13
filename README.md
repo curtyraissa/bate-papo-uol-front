@@ -1,8 +1,8 @@
 ![Imagem 1](./layout-projeto.png "Imagem 1")
 
-<h1 align="center">Projeto Parrots Game </h1>
+<h1 align="center">Bate Papo UOL </h1>
 
-<p align="justify">Esse desafio, foi desenvolver a aplicação do jogo da memória Parrots a partir de um layout, colocando em prática tudo o que aprendi.</p>
+<p align="justify">Esse desafio, foi desenvolver a aplicação do Bate Papo UOL a partir de um layout, colocando em prática tudo o que aprendi.</p>
 <hr/>
 ## ✅ Requisitos
 
